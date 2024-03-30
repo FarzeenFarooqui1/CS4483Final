@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{301F7DC9-3288-C304-2887-72EFF8575722}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RotatingPlatform.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Enemy.cs" Line="47" Column="1" />
+      <File FileName="Assets/Scripts/Spawn Alien.cs" Line="23" Column="54" />
+      <File FileName="Assets/Scripts/PlayerController.cs" Line="25" Column="42" />
+      <File FileName="Assets/Scripts/LoopingBackground.cs" Line="32" Column="6" />
+      <File FileName="Assets/Scripts/CameraController.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/PlatformSpawner.cs" Line="59" Column="1" />
+      <File FileName="Assets/Scripts/RotatingPlatform.cs" Line="3" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3dd6dcf8-a51d-47db-ad42-b4e61d208a8c" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

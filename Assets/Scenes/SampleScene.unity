@@ -543,7 +543,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSpeed: 1
-  backgroundRenderer: {fileID: 807598629}
 --- !u!1 &892373808
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +764,7 @@ Transform:
   m_GameObject: {fileID: 938818620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.00017690076, z: -0, w: 1}
-  m_LocalPosition: {x: -3.58, y: 1.2052848, z: 0.030000001}
+  m_LocalPosition: {x: -3.58, y: 1.15, z: 0.030000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1027,6 +1026,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972255658}
   m_CullTransparentMesh: 1
+--- !u!1 &1193060027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193060028}
+  - component: {fileID: 1193060029}
+  m_Layer: 0
+  m_Name: PlatformSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1193060028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193060027}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070094577}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1193060029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193060027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff03e32f3b734f6caf5a1eebfa189d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformPrefab: {fileID: 2290034624030566317, guid: e18735a894b0844c28086d1180b95feb, type: 3}
+  rotatingPlatformPrefab: {fileID: 2290034624030566317, guid: 20dc68c73bf684046b354a34bc4ede0c, type: 3}
+  spawnDistance: 3
+  destroyDistance: 10
+  spawnInterval: 2
+  minY: -2
+  maxY: 1
 --- !u!1 &1308386133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1152,6 +1202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 12
+  jumpForce: 15
 --- !u!50 &1838927932
 Rigidbody2D:
   serializedVersion: 4
@@ -1167,7 +1218,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1211,7 +1262,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.9171803, y: 0.9528277}
+  m_Offset: {x: -3.6296608, y: 0.8809478}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1222,7 +1273,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6352181, y: 2.164567}
+  m_Size: {x: 1.0601792, y: 2.020807}
   m_EdgeRadius: 0
 --- !u!1 &1923951319
 GameObject:
@@ -1358,7 +1409,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 20038b48543dd4e509a4c4cc0c327f71, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.533
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1549,7 +1600,7 @@ GameObject:
   - component: {fileID: 2050499114}
   m_Layer: 0
   m_Name: Bottom
-  m_TagString: Border
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1626,7 +1677,7 @@ GameObject:
   - component: {fileID: 2070094578}
   - component: {fileID: 2070094579}
   m_Layer: 0
-  m_Name: Game Controller
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1651,6 +1702,7 @@ Transform:
   - {fileID: 900463672}
   - {fileID: 2107131274}
   - {fileID: 2016626037}
+  - {fileID: 1193060028}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2070094578
@@ -1665,7 +1717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6fc0a1c0fd445daae1e85dfaa04f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 15
+  player: {fileID: 1838927930}
+  cameraSpeed: 1
 --- !u!114 &2070094579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,11 +1777,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacle: {fileID: 8428901014232038936, guid: 517831e2b6e45481abd95287158d197d, type: 3}
-  maxX: 3.5
-  minX: 3
-  maxY: 8
-  minY: -4
-  timeBetweenSpawn: 0.6
+  maxX: 20
+  minX: -20
+  maxY: 3
+  minY: -3
+  timeBetweenSpawn: 5
+  enemySpeed: 1
 --- !u!1 &2129653435
 GameObject:
   m_ObjectHideFlags: 0

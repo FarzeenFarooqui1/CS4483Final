@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class LoopingBackground : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float backgroundSpeed;
-    public Renderer backgroundRenderer;
+    private Renderer backgroundRenderer;
+    private float textureUnitSizeX;
+
+    void Start()
+    {
+        backgroundRenderer = GetComponent<Renderer>();
+        textureUnitSizeX = backgroundRenderer.material.mainTexture.width / transform.localScale.x;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        backgroundRenderer.material.mainTextureOffset += new Vector2(backgroundSpeed * Time.deltaTime, 0f);
+        // Calculate movement
+        float offsetX = Time.deltaTime * backgroundSpeed;
+        float newPositionX = backgroundRenderer.material.mainTextureOffset.x + offsetX;
+
+        // Apply looping effect
+        if (Mathf.Abs(newPositionX) >= textureUnitSizeX)
+        {
+            newPositionX -= textureUnitSizeX * Mathf.Sign(offsetX);
+        }
+
+        // Apply new position
+        backgroundRenderer.material.mainTextureOffset = new Vector2(newPositionX, 0);
     }
 }
