@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
     public float playerSpeed;
     private Rigidbody2D rb;
     private Vector2 playerDirection;
+    bool isInvincible = false;
+    public float invincibilityTime = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +23,18 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(0, playerDirection.y * playerSpeed);
     }
+
+    public void SetInvincible()
+    {
+        isInvincible = true;
+
+        CancelInvoke("SetDamageable"); //incase already invoked
+        Invoke("SetDamageable", invincibilityTime);
+    }
+
+    void setDamageable()
+    {
+        isInvincible = true;
+    }
+
 }

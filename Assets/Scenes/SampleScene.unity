@@ -1689,6 +1689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107131274}
   - component: {fileID: 2107131275}
+  - component: {fileID: 2107131276}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -1729,6 +1730,18 @@ MonoBehaviour:
   maxY: 8
   minY: -4
   timeBetweenSpawn: 0.6
+--- !u!114 &2107131276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107131273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af156cd09e1fa432bb8c700d76648e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2129653435
 GameObject:
   m_ObjectHideFlags: 0
