@@ -16,4 +16,21 @@ public class InvinciblePowerUp : MonoBehaviour
             playerScript.SetInvincible();
         }
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            StartCoroutine(NoDamage());
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
+
+    IEnumerator NoDamage()
+    {
+        yield return new WaitForSeconds(5);
+        //Destroy(gameObject);
+
+    }
 }
