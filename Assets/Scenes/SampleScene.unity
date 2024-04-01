@@ -201,6 +201,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133088186}
   m_CullTransparentMesh: 1
+--- !u!1 &268086798
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268086799}
+  - component: {fileID: 268086800}
+  m_Layer: 0
+  m_Name: SpawnPoint Invincible
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268086799
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268086798}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2070094577}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &268086800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268086798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e50aef0f33e14d7ead33fb4576785c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacle: {fileID: 5036100325312372267, guid: 6140319c9dc8be1439030559760d271e, type: 3}
+  maxX: 3.5
+  minX: 3
+  maxY: 8
+  minY: -4
+  timeBetweenSpawn: 0.5
 --- !u!1 &350939185
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +507,7 @@ GameObject:
   - component: {fileID: 718737806}
   - component: {fileID: 718737807}
   m_Layer: 0
-  m_Name: SpawnPoint Powerup
+  m_Name: SpawnPoint Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -495,7 +545,7 @@ MonoBehaviour:
   minX: 3
   maxY: 8
   minY: -4
-  timeBetweenSpawn: 1
+  timeBetweenSpawn: 1.5
 --- !u!1 &807598628
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,7 +849,7 @@ GameObject:
   m_Component:
   - component: {fileID: 938818621}
   - component: {fileID: 938818622}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1166,7 +1216,7 @@ GameObject:
   - component: {fileID: 1838927932}
   - component: {fileID: 1838927931}
   - component: {fileID: 1838927933}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1202,7 +1252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 12
-  invincibilityTime: 3
+  isInvincible: 0
+  invincibilityDurationSeconds: 4
 --- !u!50 &1838927932
 Rigidbody2D:
   serializedVersion: 4
@@ -1701,6 +1752,7 @@ Transform:
   - {fileID: 1838927930}
   - {fileID: 900463672}
   - {fileID: 2107131274}
+  - {fileID: 268086799}
   - {fileID: 718737806}
   - {fileID: 2016626037}
   m_Father: {fileID: 0}

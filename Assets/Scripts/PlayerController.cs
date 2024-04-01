@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Player : MonoBehaviour
 {
-    public float playerSpeed;
+    [SerializeField] private float playerSpeed;
+
     private Rigidbody2D rb;
     private Vector2 playerDirection;
 
-    bool isInvincible = false;
-    public float invincibilityTime = 3.0f;
+    public bool isInvincible = false;
+
+    [SerializeField] private float invincibilityDurationSeconds;
+
     private float _speedBoostDuration;
     private bool boosting;
     // Start is called before the first frame update
@@ -42,18 +45,26 @@ public class Player : MonoBehaviour
     {
         rb.velocity = new Vector2(0, playerDirection.y * playerSpeed);
     }
-
-    public void SetInvincible()
+    void MethodThatTriggersInvulnerability()
     {
-        isInvincible = true;
-
-        CancelInvoke("SetDamageable"); //incase already invoked
-        Invoke("SetDamageable", invincibilityTime);
+        if (!isInvincible)
+        {
+            StartCoroutine(BecomeTemporarilyInvincible());
+        }
     }
-
-    void SetDamageable()
+    private IEnumerator BecomeTemporarilyInvincible()
     {
         isInvincible = true;
+        if(isInvincible == true)
+        {
+            Physics2D.IgnoreLayerCollision(7, 8, true);
+            yield return new WaitForSeconds(invincibilityDurationSeconds);
+            isInvincible = false;
+            Debug.Log("Player is no longer invincible!");
+        }
+
+        Physics2D.IgnoreLayerCollision(7, 8, false);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,6 +73,13 @@ public class Player : MonoBehaviour
         {
             boosting = true;
             playerSpeed = 20;
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.tag == "InvincibilityPowerUp")
+        {
+            Debug.Log("Player turned invincible!");
+            MethodThatTriggersInvulnerability();
             Destroy(collision.gameObject);
         }
     }
