@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.Events;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class ScoreManager : MonoBehaviour
     //every two minutes double the score 
     public float timer = 0f;
     public float interval = 4f;
+    public static int finalScore;
+
+    [SerializeField]
+    private TMP_InputField inputName;
+
+    public UnityEvent<string, int> submitScoreEvent;
 
     private void Start()
     {
@@ -46,6 +53,12 @@ public class ScoreManager : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = score.ToString();
+        finalScore = score;
+    }
+
+    public void SubmitScore()
+    {
+        submitScoreEvent.Invoke(inputName.text, score);
     }
     
 }

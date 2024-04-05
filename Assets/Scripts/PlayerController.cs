@@ -176,6 +176,7 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             collectedCount.score++;
+            CharacterStore.totalCoins++;
         }
         if (other.tag == "SpeedPowerUp")
         {
