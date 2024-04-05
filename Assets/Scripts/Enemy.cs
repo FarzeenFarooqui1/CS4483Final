@@ -18,10 +18,12 @@ public class Enemy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        /*
         else if(collision.tag == "Player")
         {
             Destroy(player.gameObject);
         }
+        */
         
     }
 }
